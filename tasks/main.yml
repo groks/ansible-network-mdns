@@ -1,0 +1,21 @@
+---
+
+- name: avahi daemon and nsswitch plugins are installed
+  yum: name={{ item }} state=present
+  with_items:
+    - avahi-dnsconfd
+    - nss-myhostname
+    - nss-mdns
+
+- name: myhostname and mdns nsswitch plugins are enabled
+  lineinfile:
+    dest: /etc/nsswitch.conf
+    regexp: "^hosts:"
+    line: "hosts: files myhostname mdns4_minimal [NOTFOUND=return] dns mdns4"
+
+- name: mdns port opened in firewall zones
+  firewalld: permanent=True service=mdns state=enabled zone={{ item }}
+  with_items: network_mdns_zones
+
+- name: avahi daemon is enabled
+  service: name=avahi-daemon enabled=yes state=started

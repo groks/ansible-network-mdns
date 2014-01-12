@@ -1,0 +1,18 @@
+---
+
+galaxy_info:
+  author: groks
+  description: Enable mdns (zeroconf, bonjour, avahi) link-local hostname look-up and service discovery
+  license: BSD
+  min_ansible_version: 1.4
+
+  platforms:
+    - name: Fedora
+      versions:
+        - all
+
+  categories:
+    - system
+    - networking
+
+dependencies: []
