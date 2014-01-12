@@ -1,7 +1,7 @@
 network-mdns
 ========
 
-An [ansible role](https://galaxy.ansibleworks.com/) to enable
+An [ansible role](https://galaxy.ansibleworks.com/list#/roles/212) to enable
 [mdns](https://en.wikipedia.org/wiki/Zero_configuration_networking) (aka:
 zeroconf, bonjour, avahi) link-local hostname look-up and service discovery.
 
